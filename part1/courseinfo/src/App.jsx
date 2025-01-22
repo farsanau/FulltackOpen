@@ -18,16 +18,18 @@ const App = () => {
     ]
   }
 
+
   const Header = (props) =>{
-    console.log(props.course)
+    console.log(props.course.name)
     return(
     
-      <h1>{props.course}</h1>
+      <h1>{props.course.name}</h1>
       
     )}
 
   const Content=(props) =>{
-console.log(props.parts[0].name)
+console.log(props)
+console.log("props exercises in content component",props.parts[0].exercises)
     const Part = (props) =>{
       
       return(<>
@@ -44,7 +46,7 @@ console.log(props.parts[0].name)
 </>)}
 
   const Total = (props) =>{
-    console.log(props.parts[0].exercises)
+    console.log("props exercises in total component",props.parts[2].exercises)
 const a =props.parts[0].exercises
 const b =props.parts[1].exercises
 const c =props.parts[2].exercises
@@ -55,9 +57,9 @@ return(
   return (
 
     <div>
-      <Header course={course.name} />
-     <Content parts ={course.parts}/>
-     <Total parts={course.parts}/>
+      <Header course={course} />
+     <Content parts ={course.parts} />
+     <Total parts ={course.parts}/>
     </div>
     
   )
